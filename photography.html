@@ -183,6 +183,32 @@
         .close:hover {
             color: #004D8C;
         }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            z-index: 1002;
+        }
+
+        .arrow:hover {
+            background: rgba(0, 77, 140, 0.6);
+        }
+
+        .arrow-left { left: 10px; }
+        .arrow-right { right: 10px; }
         
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -221,6 +247,10 @@
                 right: 20px;
                 font-size: 30px;
             }
+
+            .arrow { width: 40px; height: 40px; font-size: 22px; }
+            .arrow-left { left: 6px; }
+            .arrow-right { right: 6px; }
         }
     </style>
 </head>
@@ -240,7 +270,7 @@
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openModal('gallery/DSC06046-min.jpg', 'Mountain Landscapes', 'Capturing the grandeur of mountain ranges and natural formations')">
                     <div class="gallery-image">
-                        <img src="gallery/DSC06046-min.jpg" alt="Landscape Photography" class="gallery-img">
+                        <img src="gallery/thumbs/DSC06046-min.jpg" data-full="gallery/DSC06046-min.jpg" alt="Landscape Photography" class="gallery-img" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <h3 class="gallery-title">Mountain Landscapes</h3>
                             <p class="gallery-description">Capturing the grandeur of mountain ranges and natural formations</p>
@@ -250,7 +280,7 @@
                 
                 <div class="gallery-item" onclick="openModal('gallery/DSC06068-min.jpg', 'Forest Details', 'Exploring the intricate beauty of forest ecosystems')">
                     <div class="gallery-image">
-                        <img src="gallery/DSC06068-min.jpg" alt="Nature Photography" class="gallery-img">
+                        <img src="gallery/thumbs/DSC06068-min.jpg" data-full="gallery/DSC06068-min.jpg" alt="Nature Photography" class="gallery-img" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <h3 class="gallery-title">Forest Details</h3>
                             <p class="gallery-description">Exploring the intricate beauty of forest ecosystems</p>
@@ -260,7 +290,7 @@
                 
                 <div class="gallery-item" onclick="openModal('gallery/DSC06092-min.jpg', 'Urban Architecture', 'Modern cityscapes and architectural marvels')">
                     <div class="gallery-image">
-                        <img src="gallery/DSC06092-min.jpg" alt="Urban Photography" class="gallery-img">
+                        <img src="gallery/thumbs/DSC06092-min.jpg" data-full="gallery/DSC06092-min.jpg" alt="Urban Photography" class="gallery-img" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <h3 class="gallery-title">Urban Architecture</h3>
                             <p class="gallery-description">Modern cityscapes and architectural marvels</p>
@@ -270,7 +300,7 @@
                 
                 <div class="gallery-item" onclick="openModal('gallery/DSC06309-min.jpg', 'Portrait Studies', 'Human expressions and character portraits')">
                     <div class="gallery-image">
-                        <img src="gallery/DSC06309-min.jpg" alt="Portrait Photography" class="gallery-img">
+                        <img src="gallery/thumbs/DSC06309-min.jpg" data-full="gallery/DSC06309-min.jpg" alt="Portrait Photography" class="gallery-img" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <h3 class="gallery-title">Portrait Studies</h3>
                             <p class="gallery-description">Human expressions and character portraits</p>
@@ -280,7 +310,7 @@
                 
                 <div class="gallery-item" onclick="openModal('gallery/DSC06377-min.jpg', 'Abstract Forms', 'Exploring shapes, patterns, and visual abstractions')">
                     <div class="gallery-image">
-                        <img src="gallery/DSC06377-min.jpg" alt="Abstract Photography" class="gallery-img">
+                        <img src="gallery/thumbs/DSC06377-min.jpg" data-full="gallery/DSC06377-min.jpg" alt="Abstract Photography" class="gallery-img" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <h3 class="gallery-title">Abstract Forms</h3>
                             <p class="gallery-description">Exploring shapes, patterns, and visual abstractions</p>
@@ -290,7 +320,7 @@
                 
                 <div class="gallery-item" onclick="openModal('gallery/DSC06406-min.jpg', 'Street Life', 'Candid moments and daily life in urban environments')">
                     <div class="gallery-image">
-                        <img src="gallery/DSC06406-min.jpg" alt="Street Photography" class="gallery-img">
+                        <img src="gallery/thumbs/DSC06406-min.jpg" data-full="gallery/DSC06406-min.jpg" alt="Street Photography" class="gallery-img" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <h3 class="gallery-title">Street Life</h3>
                             <p class="gallery-description">Candid moments and daily life in urban environments</p>
@@ -305,6 +335,8 @@
     <div id="imageModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
+            <button class="arrow arrow-left" onclick="prevImage()" aria-label="Previous image">&#10094;</button>
+            <button class="arrow arrow-right" onclick="nextImage()" aria-label="Next image">&#10095;</button>
             <img id="modalImage" src="" alt="" class="modal-img">
             <div class="modal-info">
                 <h3 id="modalTitle"></h3>
@@ -314,29 +346,50 @@
     </div>
 
     <script>
+        let galleryData = [];
+        let currentIndex = 0;
+
+        // Build gallery data from DOM on load
+        document.addEventListener('DOMContentLoaded', () => {
+            galleryData = Array.from(document.querySelectorAll('.gallery-item')).map(item => {
+                const img = item.querySelector('img');
+                const titleEl = item.querySelector('.gallery-title');
+                const descEl = item.querySelector('.gallery-description');
+                return {
+                    src: img.dataset.full || img.getAttribute('src'),
+                    title: titleEl ? titleEl.textContent : '',
+                    description: descEl ? descEl.textContent : ''
+                };
+            });
+        });
+
         function openModal(imageSrc, title, description) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const modalTitle = document.getElementById('modalTitle');
             const modalDescription = document.getElementById('modalDescription');
-            
+ 
             modal.style.display = 'block';
             modalImg.src = imageSrc;
             modalTitle.textContent = title;
             modalDescription.textContent = description;
-            
+
+            // Set current index based on image source
+            const idx = galleryData.findIndex(g => g.src === imageSrc);
+            currentIndex = idx >= 0 ? idx : 0;
+ 
             // Prevent body scroll when modal is open
             document.body.style.overflow = 'hidden';
         }
-        
+ 
         function closeModal() {
             const modal = document.getElementById('imageModal');
             modal.style.display = 'none';
-            
+ 
             // Restore body scroll
             document.body.style.overflow = 'auto';
         }
-        
+ 
         // Close modal when clicking outside the image
         window.onclick = function(event) {
             const modal = document.getElementById('imageModal');
@@ -344,13 +397,28 @@
                 closeModal();
             }
         }
-        
+ 
         // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
+            if (event.key === 'Escape') closeModal();
+            if (event.key === 'ArrowRight') nextImage();
+            if (event.key === 'ArrowLeft') prevImage();
         });
+
+        function showImageByIndex(index) {
+            if (!galleryData.length) return;
+            currentIndex = (index + galleryData.length) % galleryData.length;
+            const data = galleryData[currentIndex];
+            const modalImg = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            modalImg.src = data.src;
+            modalTitle.textContent = data.title;
+            modalDescription.textContent = data.description;
+        }
+
+        function nextImage() { showImageByIndex(currentIndex + 1); }
+        function prevImage() { showImageByIndex(currentIndex - 1); }
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Homepage</title>
+    <title>Jinfan Zhou</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -23,15 +23,12 @@
                     <a href="#about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#research" class="nav-link">Research</a>
+                    <a href="#research" class="nav-link">Publications</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link">Working Experience</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#blog" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item" hidden>
                     <a href="#photography" class="nav-link">Photography</a>
                 </li>
                 <li class="nav-item">
@@ -53,12 +50,12 @@
                 <div class="hero-text">
                     <h1 class="hero-title">Hi! I'm Jinfan Zhou.</h1>
                     <p class="hero-subtitle">
-                        PhD student at University of Chicago.<br>
+                        PhD student in Computer Science at University of Chicago.<br>
                         Specialized in <strong>Computer Vision</strong>, <strong>Computer Graphics</strong>, <strong>Machine Learning</strong>.
                     </p>
                 </div>
                 <div class="hero-image">
-                    <img src="images/profile.jpg" alt="Jinfan Zhou" class="profile-photo">
+                    <img src="images/profile-600.jpg" alt="Jinfan Zhou" class="profile-photo">
                 </div>
             </div>
         </div>
@@ -71,21 +68,15 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I'm Jinfan Zhou, a PhD student at University of Chicago advised by <a href="https://people.cs.uchicago.edu/~ranahanocka/" target="_blank" rel="noopener noreferrer">Prof. Rana Hanocka</a>. 
-                        I earned my Master's degree in Robotics from University of Michigan. I was fortunate to work with <a href="https://jjparkcv.github.io/" target="_blank" rel="noopener noreferrer">Prof. Jeong Joon Park</a> and <a href="https://qingqu.engin.umich.edu/" target="_blank" rel="noopener noreferrer">Prof. Qing Qu</a> during my master's studies. I also earned my Bachelor's degree in Automation from Shandong University, advised by <a href="http://www.vsislab.com/" target="_blank" rel="noopener noreferrer">Prof. Wei Zhang</a>.
+                        I'm Jinfan Zhou, a PhD student at University of Chicago advised by <a href="https://people.cs.uchicago.edu/~ranahanocka/" target="_blank" rel="noopener noreferrer">Prof. Rana Hanocka</a>. My research interests lie in the intersection of 3D computer vision, computer graphics and machine learning. I am particularly interested in 3D shape understanding and generative models. I study how to distill robust features from 2D for multiple downstream tasks, and study generative models for both images and 3D shapes generation.
+                        
                     </p>
                     <p>
-                        I have authored several papers recognized in both industry and academia, including 
-                        [Paper 1], [Paper 2], and [Paper 3]. I was fortunate to be advised by 
-                        [Advisor Names] during my studies.
-                    </p>
-                    <p>
-                        Outside of research, I enjoy [Your Hobbies]. I completed my [Previous Degree] 
-                        at [Previous University], where I also [Additional Activities].
+                        I earned my Master's degree in Robotics from University of Michigan. I was fortunate to work with <a href="https://jjparkcv.github.io/" target="_blank" rel="noopener noreferrer">Prof. Jeong Joon Park</a> and <a href="https://qingqu.engin.umich.edu/" target="_blank" rel="noopener noreferrer">Prof. Qing Qu</a> during my master's studies. I also earned my Bachelor's degree in Automation from Shandong University, advised by <a href="http://www.vsislab.com/" target="_blank" rel="noopener noreferrer">Prof. Wei Zhang</a>. In addition, I worked under the supervision of <a href="https://profiles.ucl.ac.uk/47802-evangelos-mazomenos" target="_blank" rel="noopener noreferrer">Prof. Evangelos Mazomenos</a> at University College London.
                     </p>
                     <div class="about-actions">
                         <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#" class="btn btn-secondary">Download CV</a>
+                        <a href="https://scholar.google.com/citations?user=O3Df4PwAAAAJ" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Google Scholar</a>
                     </div>
                 </div>
             </div>
@@ -95,147 +86,116 @@
     <!-- Research Section -->
     <section id="research" class="research">
         <div class="container">
-            <h2 class="section-title">My Research</h2>
+            <h2 class="section-title">Publications &amp; Preprint</h2>
             <div class="research-grid">
                 <article class="research-item">
                     <div class="research-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
+                        <img src="images/teasers/meshfm.jpg" alt="MeshFM teaser" class="research-teaser" loading="lazy" decoding="async">
                     </div>
                     <div class="research-content">
-                        <h3 class="research-title">Paper Title Here</h3>
-                        <p class="research-authors">Your Name, Co-author Name, Advisor Name</p>
-                        <p class="research-venue">Conference Name 2024</p>
-                        <p class="research-abstract">
-                            Brief description of your research work. This should explain what the paper is about, 
-                            what problem it solves, and what contributions it makes to the field.
-                        </p>
+                        <h3 class="research-title">MeshFM: 2D Features Are All You Need for 3D Shape Understanding</h3>
+                        <p class="research-authors"><strong>Jinfan Zhou</strong>*, Richard Liu*, Itai Lang, Rana Hanocka</p>
+                        <p class="research-venue">European Conference on Computer Vision (ECCV) 2026</p>
                         <div class="research-links">
-                            <a href="#" class="research-link">Paper</a>
-                            <a href="#" class="research-link">Code</a>
-                            <a href="#" class="research-link">Abstract</a>
+                            <a href="https://arxiv.org/abs/2607.27592" class="research-link" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a href="https://threedle.github.io/MeshFM/" class="research-link" target="_blank" rel="noopener noreferrer">Project Page</a>
+                            <a href="https://github.com/threedle/MeshFM" class="research-link" target="_blank" rel="noopener noreferrer">Code</a>
                         </div>
                     </div>
                 </article>
 
                 <article class="research-item">
                     <div class="research-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
+                        <img src="images/teasers/reproducibility.jpg" alt="Reproducibility in diffusion models teaser" class="research-teaser" loading="lazy" decoding="async">
                     </div>
                     <div class="research-content">
-                        <h3 class="research-title">Another Paper Title</h3>
-                        <p class="research-authors">Your Name, Co-author Name, Advisor Name</p>
-                        <p class="research-venue">Journal Name 2023</p>
-                        <p class="research-abstract">
-                            Another research project description. Explain the methodology, results, 
-                            and impact of this work in your field.
-                        </p>
+                        <h3 class="research-title">The Emergence of Reproducibility and Consistency in Diffusion Models</h3>
+                        <p class="research-authors">Huijie Zhang*, <strong>Jinfan Zhou</strong>*, Yifu Lu, Minzhe Guo, Liyue Shen, Qing Qu</p>
+                        <p class="research-venue">International Conference on Machine Learning (ICML) 2024</p>
+                        <p class="research-award"><i class="fas fa-trophy"></i> Best Paper Award, NeurIPS 2023 Workshop on Diffusion Models</p>
                         <div class="research-links">
-                            <a href="#" class="research-link">Paper</a>
-                            <a href="#" class="research-link">Code</a>
-                            <a href="#" class="research-link">Abstract</a>
+                            <a href="https://arxiv.org/abs/2310.05264" class="research-link" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a href="https://www.huijiezh.com/reproducibility-generalizability/index.html" class="research-link" target="_blank" rel="noopener noreferrer">Project Page</a>
+                            <a href="https://github.com/huijieZH/Diffusion-Model-Generalizability" class="research-link" target="_blank" rel="noopener noreferrer">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="research-item">
+                    <div class="research-image">
+                        <img src="images/teasers/shift.jpg" alt="Shifted-windows transformers teaser" class="research-teaser" loading="lazy" decoding="async">
+                    </div>
+                    <div class="research-content">
+                        <h3 class="research-title">Shifted-windows Transformers for the Detection of Cerebral Aneurysms in Microsurgery</h3>
+                        <p class="research-authors"><strong>Jinfan Zhou</strong>*, William Muirhead*, Simon C. Williams, Danail Stoyanov, Hani J. Marcus, Evangelos B. Mazomenos</p>
+                        <p class="research-venue">International Journal of Computer Assisted Radiology and Surgery (IJCARS) 2023</p>
+                        <p class="research-award"><i class="fas fa-award"></i> Best Paper Award Nominee, IPCAI 2023</p>
+                        <div class="research-links">
+                            <a href="https://arxiv.org/abs/2303.09648" class="research-link" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a href="https://github.com/zhou-jinfan/MACS" class="research-link" target="_blank" rel="noopener noreferrer">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="research-item">
+                    <div class="research-image">
+                        <img src="images/teasers/annals_surgery.jpg" alt="AI-assisted surgical scene recognition teaser" class="research-teaser" loading="lazy" decoding="async">
+                    </div>
+                    <div class="research-content">
+                        <h3 class="research-title">Artificial Intelligence Assisted Surgical Scene Recognition: A Comparative Study Amongst Healthcare Professionals</h3>
+                        <p class="research-authors">Simon C. Williams*, <strong>Jinfan Zhou</strong>*, William R. Muirhead, et al.</p>
+                        <p class="research-venue">Annals of Surgery</p>
+                        <div class="research-links">
+                            <a href="https://doi.org/10.1097/SLA.0000000000006577" class="research-link" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="research-item">
+                    <div class="research-image">
+                        <img src="images/teasers/triflow.jpg" alt="TriFlow teaser" class="research-teaser" loading="lazy" decoding="async">
+                    </div>
+                    <div class="research-content">
+                        <h3 class="research-title">Taming Feed-forward Reconstruction Models as Latent Encoders for 3D Generative Models</h3>
+                        <p class="research-authors">Suttisak Wizadwongsa*, <strong>Jinfan Zhou</strong>*, Edward Li, Jeong Joon Park</p>
+                        <p class="research-venue">arXiv preprint arXiv:2501.00651</p>
+                        <div class="research-links">
+                            <a href="https://arxiv.org/abs/2501.00651" class="research-link" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a href="https://triflow.github.io/" class="research-link" target="_blank" rel="noopener noreferrer">Project Page</a>
                         </div>
                     </div>
                 </article>
             </div>
+            <p class="research-note">* Equal contribution. See the full list on <a href="https://scholar.google.com/citations?user=O3Df4PwAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <div class="project-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-code"></i>
+            <h2 class="section-title">Working Experience</h2>
+            <div class="experience-content">
+                <div class="experience-group">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <a href="https://thrixel.com/" class="experience-org" target="_blank" rel="noopener noreferrer">Thrixel Inc. <i class="fas fa-arrow-up-right-from-square"></i></a>
+                            <span class="experience-date">June 2026 – Present</span>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">
-                            Brief description of your project. What does it do? What technologies did you use?
-                        </p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
+                        <p class="experience-role">Research Engineer Intern</p>
                     </div>
                 </div>
-
-                <div class="project-item">
-                    <div class="project-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Another Project</h3>
-                        <p class="project-description">
-                            Another project description. Highlight the key features and your role in the project.
-                        </p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <div class="container">
-            <h2 class="section-title">Blog</h2>
-            <div class="blog-grid">
-                <article class="blog-item">
-                    <div class="blog-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-blog"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title">Blog Post Title</h3>
-                        <p class="blog-date">January 15, 2024</p>
-                        <p class="blog-excerpt">
-                            Brief excerpt from your blog post. This should give readers a taste of what the full post contains.
-                        </p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-
-                <article class="blog-item">
-                    <div class="blog-image">
-                        <div class="placeholder-image">
-                            <i class="fas fa-blog"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title">Another Blog Post</h3>
-                        <p class="blog-date">December 20, 2023</p>
-                        <p class="blog-excerpt">
-                            Another blog post excerpt. Share your thoughts, insights, or experiences in your field.
-                        </p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photography Section -->
-    <section id="photography" class="photography">
+    <!-- Photography Section (hidden for now: remove "hidden" here and on the Photography nav item to show it) -->
+    <section id="photography" class="photography" hidden>
         <div class="container">
             <h2 class="section-title">Photography</h2>
             <div class="photography-grid">
                 <div class="photo-item">
                     <div class="photo-image">
-                        <img src="gallery/DSC06046-min.jpg" alt="Photography 1" class="photo-img">
+                        <img src="gallery/thumbs/DSC06046-min.jpg" alt="Photography 1" class="photo-img" loading="lazy" decoding="async">
                         <div class="photo-overlay">
                             <h3 class="photo-title">Landscape</h3>
                         </div>
@@ -244,7 +204,7 @@
                 
                 <div class="photo-item">
                     <div class="photo-image">
-                        <img src="gallery/DSC06068-min.jpg" alt="Photography 2" class="photo-img">
+                        <img src="gallery/thumbs/DSC06068-min.jpg" alt="Photography 2" class="photo-img" loading="lazy" decoding="async">
                         <div class="photo-overlay">
                             <h3 class="photo-title">Nature</h3>
                         </div>
@@ -253,7 +213,7 @@
                 
                 <div class="photo-item">
                     <div class="photo-image">
-                        <img src="gallery/DSC06092-min.jpg" alt="Photography 3" class="photo-img">
+                        <img src="gallery/thumbs/DSC06092-min.jpg" alt="Photography 3" class="photo-img" loading="lazy" decoding="async">
                         <div class="photo-overlay">
                             <h3 class="photo-title">Urban</h3>
                         </div>
@@ -262,7 +222,7 @@
                 
                 <div class="photo-item">
                     <div class="photo-image">
-                        <img src="gallery/DSC06309-min.jpg" alt="Photography 4" class="photo-img">
+                        <img src="gallery/thumbs/DSC06309-min.jpg" alt="Photography 4" class="photo-img" loading="lazy" decoding="async">
                         <div class="photo-overlay">
                             <h3 class="photo-title">Portrait</h3>
                         </div>
@@ -271,7 +231,7 @@
                 
                 <div class="photo-item">
                     <div class="photo-image">
-                        <img src="gallery/DSC06377-min.jpg" alt="Photography 5" class="photo-img">
+                        <img src="gallery/thumbs/DSC06377-min.jpg" alt="Photography 5" class="photo-img" loading="lazy" decoding="async">
                         <div class="photo-overlay">
                             <h3 class="photo-title">Abstract</h3>
                         </div>
@@ -280,7 +240,7 @@
                 
                 <div class="photo-item">
                     <div class="photo-image">
-                        <img src="gallery/DSC06406-min.jpg" alt="Photography 6" class="photo-img">
+                        <img src="gallery/thumbs/DSC06406-min.jpg" alt="Photography 6" class="photo-img" loading="lazy" decoding="async">
                         <div class="photo-overlay">
                             <h3 class="photo-title">Street</h3>
                         </div>
@@ -299,23 +259,10 @@
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <p>I'm always interested in new opportunities and collaborations.</p>
                     <div class="contact-links">
-                        <a href="mailto:your.email@example.com" class="contact-link">
+                        <a href="mailto:zjf@uchicago.edu" class="contact-link">
                             <i class="fas fa-envelope"></i>
-                            your.email@example.com
-                        </a>
-                        <a href="https://github.com/yourusername" class="contact-link">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" class="contact-link">
-                            <i class="fab fa-linkedin"></i>
-                            LinkedIn
-                        </a>
-                        <a href="https://twitter.com/yourusername" class="contact-link">
-                            <i class="fab fa-twitter"></i>
-                            Twitter
+                            zjf@uchicago.edu
                         </a>
                     </div>
                 </div>
@@ -326,7 +273,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+            <p>&copy; 2026 Jinfan Zhou. All Rights Reserved.</p>
         </div>
     </footer>
 
