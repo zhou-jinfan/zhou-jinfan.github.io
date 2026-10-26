@@ -107,19 +107,12 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        typeWriter(heroTitle, originalText, 50);
-    }
-});
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
+// Start typing right away: waiting for window load (all images) meant the
+// full title was shown first, then erased and retyped
+const heroTitle = document.querySelector('.hero-title');
+if (heroTitle) {
+    typeWriter(heroTitle, heroTitle.innerHTML, 50);
+}
 
 // Form validation (if you add contact forms later)
 function validateEmail(email) {
@@ -127,8 +120,9 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// Add smooth reveal animation for sections
-const revealElements = document.querySelectorAll('section');
+// Add smooth reveal animation for sections (not the hero, which is already
+// on screen at first paint and would flash if hidden here)
+const revealElements = document.querySelectorAll('section:not(.hero)');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -157,15 +151,6 @@ style.textContent = `
     .revealed {
         opacity: 1;
         transform: translateY(0);
-    }
-    
-    .loaded {
-        animation: fadeIn 1s ease-in;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
     }
 `;
 document.head.appendChild(style);
